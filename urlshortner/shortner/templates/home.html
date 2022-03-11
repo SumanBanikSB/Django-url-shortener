@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <h2>Welcome to URL shortener</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="long_url"></label>
+        {{form.long_url}}
+
+        <button type = "submit" class = "btn btn-success">Generate</button>
+
+    </form>
+
+    {% if errors %}
+        <p> {{errors}} </p>
+    {% endif %}
+
+    {% if new_url %}
+        <p>The New URL is: {{new_url}} </p>
+        <p>The Long URL is: {{long_url}} </p>
+
+    {% endif %}
+
+{% endblock main %}
