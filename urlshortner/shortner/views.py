@@ -35,7 +35,7 @@ def home_view(request):
 	
 def redirect_shortened_url(request,shortened_url):
 	try:
-		a = Shortener.objects.filter(short_url = shortened_url)
+		a = Shortener.objects.get(short_url = shortened_url)
 		a.times_followed += 1
 		a.save()
 		return HttpResponseRedirect(a.long_url)
